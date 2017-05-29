@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: buildr2eclipse
+Bundle-SymbolicName: org.apache.buildr.eclipse;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Apache Buildr
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: .,
+ jruby.jar
+Eclipse-BundleShape: dir

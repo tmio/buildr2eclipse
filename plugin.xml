@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="org.apache.buildr.eclipse.buildrNature"
+         name="Buildr Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.apache.buildr.eclipse.BuildrNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Buildr Project Nature commands"
+            id="org.apache.buildr.eclipse.buildrNature.category">
+      </category>
+      <command
+            name="Add/RemoveBuildr Project Nature"
+            defaultHandler="org.apache.buildr.eclipse.AddRemoveBuildrNatureHandler"
+            categoryId="org.apache.buildr.eclipse.buildrNature.category"
+            id="org.apache.buildr.eclipse.addRemoveBuildrNature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+         <command
+               commandId="org.apache.buildr.eclipse.addRemoveBuildrNature"
+               label="Add Buildr Nature"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                           <not>
+                        <test
+                              value="org.apache.buildr.eclipse.buildrNature"
+                              property="org.eclipse.core.resources.projectNature">
+                        </test>
+                        </not>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.apache.buildr.eclipse.addRemoveBuildrNature"
+               label="Remove Buildr Nature"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                           <test
+                                 value="org.apache.buildr.eclipse.buildrNature"
+                                 property="org.eclipse.core.resources.projectNature">
+                           </test>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/buildr.gif"
+            id="org.apache.buildr.eclipse.natureImage"
+            natureId="org.apache.buildr.eclipse.buildrNature">
+      </image>
+   </extension>
+   <extension point="org.eclipse.ui.decorators">
+     <decorator
+           adaptable="true"
+           icon="icons/buildr.gif"
+           id="org.apache.buildr.eclipse.buildrDecorator"
+           label="Buildr Decorator"
+           lightweight="true"
+           location="TOP_LEFT"
+           state="true">
+       <enablement>
+          <or>
+            <objectState name="label" value="Buildr Dependencies"/>
+          </or>
+       </enablement>
+     </decorator>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="org.apache.buildr.eclipse.BuildrClasspathContainerInitializer"
+            id="org.apache.buildr.eclipse.BUILDR_CONTAINER">
+      </classpathContainerInitializer>
+   </extension>
+</plugin>
