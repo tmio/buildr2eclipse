@@ -31,6 +31,7 @@
             locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
          <command
                commandId="org.apache.buildr.eclipse.addRemoveBuildrNature"
+               icon="icons/buildr.png"
                label="Add Buildr Nature"
                style="push">
             <visibleWhen
@@ -56,6 +57,7 @@
          </command>
          <command
                commandId="org.apache.buildr.eclipse.addRemoveBuildrNature"
+               icon="icons/buildr.png"
                label="Remove Buildr Nature"
                style="push">
             <visibleWhen
@@ -82,7 +84,7 @@
    <extension
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
-            icon="icons/buildr.gif"
+            icon="icons/buildr_8x8.gif"
             id="org.apache.buildr.eclipse.natureImage"
             natureId="org.apache.buildr.eclipse.buildrNature">
       </image>
@@ -90,7 +92,7 @@
    <extension point="org.eclipse.ui.decorators">
      <decorator
            adaptable="true"
-           icon="icons/buildr.gif"
+           icon="icons/buildr_8x8.gif"
            id="org.apache.buildr.eclipse.buildrDecorator"
            label="Buildr Decorator"
            lightweight="true"

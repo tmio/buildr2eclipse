@@ -1,3 +1,4 @@
 = 1.0.0 (pending)
 * Ability to set a Buildr nature
 * Projects with a Buildfile can add their dependencies to the project under a "Buildr dependencies" container
+* Fix for #4: Add icon to the nature handler

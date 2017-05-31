@@ -86,7 +86,7 @@ public class BuildrClasspathContainer implements IClasspathContainer, Serializab
   }
 
   public IPath getPath() {
-    return new Path("b2e.BUILDR_CONTAINER/dependencies");
+    return new Path("org.apache.buildr.eclipse.BUILDR_CONTAINER/dependencies");
   }
 
 }

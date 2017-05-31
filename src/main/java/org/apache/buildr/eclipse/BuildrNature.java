@@ -34,7 +34,7 @@ public class BuildrNature implements IProjectNature {
   /**
    * ID of this project nature
    */
-  public static final String NATURE_ID = "b2e.buildrNature";
+  public static final String NATURE_ID = "org.apache.buildr.eclipse.buildrNature";
 
   private IProject project;
 
@@ -43,7 +43,7 @@ public class BuildrNature implements IProjectNature {
     if (project.hasNature(JavaCore.NATURE_ID)) {
       IJavaProject targetProject = JavaCore.create(project);
       IClasspathEntry[] entries = targetProject.getRawClasspath();
-      Path buildrContainer = new Path("b2e.BUILDR_CONTAINER/dependencies");
+      Path buildrContainer = new Path("org.apache.buildr.eclipse.BUILDR_CONTAINER/dependencies");
       for (IClasspathEntry entry : entries) {
         if (entry.getPath().equals(buildrContainer)) {
           return;
@@ -63,7 +63,7 @@ public class BuildrNature implements IProjectNature {
     if (project.hasNature(JavaCore.NATURE_ID)) {
       IJavaProject targetProject = JavaCore.create(project);
       IClasspathEntry[] entries = targetProject.getRawClasspath();
-      Path buildrContainer = new Path("b2e.BUILDR_CONTAINER/dependencies");
+      Path buildrContainer = new Path("org.apache.buildr.eclipse.BUILDR_CONTAINER/dependencies");
       List<IClasspathEntry> newEntries = new ArrayList<>();
       for (IClasspathEntry entry : entries) {
         if (!entry.getPath().equals(buildrContainer)) {
