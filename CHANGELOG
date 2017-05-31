@@ -3,3 +3,4 @@
 * Projects with a Buildfile can add their dependencies to the project under a "Buildr dependencies" container
 * Fix for #4: Add icon to the nature handler
 * Fix for #9: Add a travis build
+* Fix for #10: Add ASF license
